@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image, ImageFilter, ImageEnhance
 import os
-#깃 허브
+#깃 허브가 연동됐따ㅏㅏ
 
 from datetime import datetime
 
