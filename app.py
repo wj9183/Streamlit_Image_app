@@ -117,8 +117,8 @@ def main():
                 crop_to_x = st.slider('썸네일 가로 꼭지점 입력', 0,300)
                 crop_to_y = st.slider('썸네일 세로 꼭지점 입력', 0,300)
                 for img in image_list:
-                    st.image(img)
-                    img = load_image(img)
+                    # st.image(img)
+                    # img = load_image(img)
                     #왼쪽 위 부분부터 시작해서, 너비와 깊이만큼 잘라라.
                     #왼쪽 윗 부분이 좌표 (50,100)
                     #너비 x축 으로 200, 깊이 y축으로 200. (200,200)
@@ -126,8 +126,13 @@ def main():
                     #왼쪽 위에서 오른쪽 으로 200, 아래쪽으로 200한 영역.
                     box = (crop_start_x, crop_start_y, crop_to_x, crop_to_y)
                     cropped_image = img.crop(box)
-                    img.save('data/crop.png')
+                    # img.save('data/crop.png')
                     st.image(cropped_image)
+                    directory = st.text_input('파일 경로 입력', key = 'Crop_image')
+                #이미지 다 불러와서 가장 작은 거 찾고 그걸 기준으로 가로세로 제한을 정해야하는데 귀찮으니까 그냥 넘긴다.
+                    if st.button('파일 저장'):
+                        for img in transformed_img_list:
+                            save_uploaded_file(directory, img)
 
 
 
